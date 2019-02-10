@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from selenium.webdriver import ChromeOptions
 
 
 @pytest.fixture
