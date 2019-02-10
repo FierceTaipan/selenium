@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver import ChromeOptions
 
 
 @pytest.fixture
@@ -23,26 +24,26 @@ def test_ex(driver):
     driver.find_element_by_name("btnK").click()
     WebDriverWait(driver, 100).until(EC.title_is("selenium - Поиск в Google"))
 
+#  '/snap/bin/chromium'
+#  '/urs/local/bin/chromedriver'
 
 # @pytest.fixture
 # def driver(request):
-#     chrome_options = webdriver.ChromeOptions()
 #     options = webdriver.ChromeOptions()
-#     options.binary_location = '/snap/bin/chromium'
-#     options.add_argument("--no-sandbox")
+#     chrome_path = '/snap/bin/chromium'
+#     driver_path = '/urs/local/bin/chromedriver'
+#     options.driver_path = driver_path
 #     options.add_argument("--no-default-browser-check")
 #     options.add_argument("--no-first-run")
 #     options.add_argument("--disable-default-apps")
-#     wd = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver',
-#         chrome_options=chrome_options,
-#         service_args=['--verbose', '--log-path=/tmp/chromedriver.log'])
-#     print(wd.capabilities)
+#     options.add_argument("--verbose")
+#     wd = webdriver.Chrome(executable_path=chrome_path, chrome_options=options)
 #     request.addfinalizer(wd.quit)
 #     return wd
 #
 #
 # def test_example(driver):
 #     driver.get("http://www.google.com/")
-#     driver.find_element_by_name("q").send_keys("webdriver")
+#     driver.find_element_by_name("q").send_keys("selenium")
 #     driver.find_element_by_name("btnG").click()
-#     WebDriverWait(driver, 10).until(EC.title_is("webdriver - Поиск в Google"))
+#     WebDriverWait(driver, 10).until(EC.title_is("selenium - Поиск в Google"))
