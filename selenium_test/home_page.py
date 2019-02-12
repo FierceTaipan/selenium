@@ -27,21 +27,14 @@ def test_ex(driver):
 
 # @pytest.fixture
 # def driver(request):
-#     options = webdriver.ChromeOptions()
-#     chrome_path = '/snap/bin/chromium'
-#     driver_path = '/urs/local/bin/chromedriver'
-#     options.driver_path = driver_path
-#     options.add_argument("--no-default-browser-check")
-#     options.add_argument("--no-first-run")
-#     options.add_argument("--disable-default-apps")
-#     options.add_argument("--verbose")
-#     wd = webdriver.Chrome(executable_path=chrome_path, chrome_options=options)
+#     wd = webdriver.Chrome(r'C:\Users\a.kosich\chromedriver.exe')
 #     request.addfinalizer(wd.quit)
 #     return wd
 #
 #
-# def test_example(driver):
-#     driver.get("http://www.google.com/")
+# def test_ex(driver):
+#     driver.get("https://www.google.com/")
 #     driver.find_element_by_name("q").send_keys("selenium")
-#     driver.find_element_by_name("btnG").click()
-#     WebDriverWait(driver, 10).until(EC.title_is("selenium - Поиск в Google"))
+#     driver.implicitly_wait(60)
+#     driver.find_element_by_name("btnK").click()
+#     WebDriverWait(driver, 100).until(EC.title_is("selenium - Поиск в Google"))
