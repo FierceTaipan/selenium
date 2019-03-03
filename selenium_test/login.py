@@ -10,12 +10,13 @@ def driver(request):
     firefox_capabilities['marionette'] = True
     firefox_capabilities['binary'] = '/usr/bin/firefox'
     driver = webdriver.Firefox(capabilities=firefox_capabilities)
+    driver.implicitly_wait(60)
     request.addfinalizer(driver.quit)
     return driver
 
 
 def test_login(driver):
-    driver.get("http://localhost/litecart/admin/login.php")
+    driver.get("http://localhost/litecart/public_html/admin/login.php")
     driver.find_element_by_name("username").send_keys("admin")
     driver.find_element_by_name("password").send_keys("admin")
     driver.find_element_by_name("login").click()
