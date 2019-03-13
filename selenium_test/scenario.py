@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from urllib3.connectionpool import xrange
 
 from login import test_login
+from login import driver
 from time import sleep
 from contextlib import contextmanager
 import string,random
@@ -257,7 +258,7 @@ def test_item_of_product_verify(driver):
     assert n_product_price_with_discount_style_font_size == product_price_with_discount_style_font_size[j]
 
 
-#  Task 11
+# Task 11
 def find_and_fill_element(driver, element_name, value):
     driver.find_element_by_name(element_name).click()
     driver.find_element_by_name(element_name).clear()
@@ -445,6 +446,7 @@ def test_error_in_browsers_log(driver):
     # links = driver.find_elements_by_xpath(".//table[@class='dataTable']//td[./img and ./a]/a")
     links = driver.find_elements(By.CSS_SELECTOR, "table.dataTable [href*='product_id']:not([title]")
     links_count = len(links)
+    log = []
     for i in xrange(links_count):
         links = driver.find_elements(By.CSS_SELECTOR, "table.dataTable [href*='product_id']:not([title]")
         links[i].click()
@@ -452,4 +454,6 @@ def test_error_in_browsers_log(driver):
         driver.implicitly_wait(60)
         driver.find_element_by_name("cancel").click()
         for l in driver.get_log("browser"):
-            print(l)
+            log = log.append(l)
+            print(log)
+            assert(log == 0)
