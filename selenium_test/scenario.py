@@ -8,6 +8,8 @@ from login import test_login
 from login import driver
 from time import sleep
 from contextlib import contextmanager
+from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+
 import string,random
 import os
 
