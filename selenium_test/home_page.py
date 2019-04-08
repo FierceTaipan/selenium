@@ -12,7 +12,8 @@ from selenium.webdriver.firefox.options import Options
 def driver(request):
     firefox_capabilities = DesiredCapabilities.FIREFOX
     firefox_capabilities['marionette'] = True
-    firefox_capabilities['binary'] = '/usr/bin/firefox'
+#   firefox_capabilities['binary'] = '/usr/bin/firefox'
+    firefox_capabilities['binary'] = '/Applications/Firefox.app/Contents/MacOS/firefox'
     options = Options()
     options.headless = True
     driver = webdriver.Firefox(capabilities=firefox_capabilities, options=options)
