@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import pytest
+import time
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -22,6 +23,7 @@ def driver(request):
 def test_ex(driver):
     driver.get("http://www.google.com/")
     driver.find_element_by_name("q").send_keys("selenium")
+    time.sleep(5)
     driver.find_element_by_name("btnK").click()
     WebDriverWait(driver, 100).until(EC.title_is("selenium - Поиск в Google"))
 
