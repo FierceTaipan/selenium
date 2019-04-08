@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+from selenium.webdriver.firefox.options import Options
 
 
 @pytest.fixture
@@ -11,7 +12,9 @@ def driver(request):
     firefox_capabilities = DesiredCapabilities.FIREFOX
     firefox_capabilities['marionette'] = True
     firefox_capabilities['binary'] = '/usr/bin/firefox'
-    driver = webdriver.Firefox(capabilities=firefox_capabilities)
+    options = Options()
+    options.headless = True
+    driver = webdriver.Firefox(capabilities=firefox_capabilities, options=options)
     request.addfinalizer(driver.quit)
     return driver
 
